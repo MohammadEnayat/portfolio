@@ -13,7 +13,7 @@ export default function Loading() {
       <div className="text-center">
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 2, repeat: Infinity }}
           className="w-16 h-16 border-4 border-primary-200 border-t-primary-600 rounded-full mx-auto mb-4"
         />
         <motion.h2

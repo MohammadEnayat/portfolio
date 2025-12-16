@@ -21,8 +21,7 @@ export default function Hero() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.6
       }
     }
   };
@@ -31,8 +30,7 @@ export default function Hero() {
     y: [-10, 10, -10],
     transition: {
       duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
+      repeat: Infinity
     }
   };
 
@@ -74,7 +72,7 @@ export default function Hero() {
           >
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 2, repeat: Infinity }}
             >
               <Sparkles size={18} />
             </motion.div>
