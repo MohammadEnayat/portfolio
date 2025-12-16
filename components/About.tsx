@@ -324,7 +324,7 @@ export default function About() {
                         </div>
                         <div className="flex items-center gap-1">
                           <MapPin size={14} />
-                          <span className="text-sm font-medium">{exp.location}</span>
+                          <span className="text-sm font-medium">Chandigarh, India</span>
                         </div>
                       </div>
                     </div>
