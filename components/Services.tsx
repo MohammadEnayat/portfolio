@@ -10,7 +10,7 @@ const services = [
     title: "Cross-Platform App Development",
     description: "Build native-quality apps for Android and iOS using Flutter, reducing development time by 40% with hot-reload feature. Single codebase, multiple platforms.",
     features: ["Flutter Development", "Native Android/iOS", "Responsive Design", "App Store Deployment"],
-    price: "Starting at $3,000",
+    price: "Starting at $1,000",
     highlight: "Most Popular",
     gradient: "from-blue-500 to-cyan-500"
   },
@@ -19,7 +19,7 @@ const services = [
     title: "Custom Software Solutions",
     description: "Architect scalable applications with clean architecture, MVVM patterns, and modern state management. Optimized for performance and maintainability.",
     features: ["Clean Architecture", "State Management (BLoC, Provider)", "API Integration", "Performance Optimization"],
-    price: "Starting at $4,000",
+    price: "Starting at $1,000",
     gradient: "from-green-500 to-emerald-500"
   },
   {
@@ -27,16 +27,16 @@ const services = [
     title: "AI/ML Integration",
     description: "Integrate TensorFlow Lite and YOLO models for on-device inference, computer vision, and smart analytics. Real-time object detection and behavior analysis.",
     features: ["TensorFlow Lite", "YOLO Models", "Computer Vision", "On-device Inference"],
-    price: "Starting at $5,000",
+    price: "Starting at $2,000",
     highlight: "Premium",
     gradient: "from-purple-500 to-pink-500"
   },
   {
     icon: Palette,
-    title: "UI/UX Design & Development",
-    description: "Create intuitive, modern interfaces using Figma and Flutter. Custom widgets, animations, and seamless user experiences that drive engagement.",
-    features: ["Figma Design", "Custom UI Components", "Animations", "User Experience Optimization"],
-    price: "Starting at $2,500",
+    title: "UI/UX Improvement & Development",
+    description: "Create intuitive, modern interfaces using Flutter or Jetpack Compose. Custom widgets, animations, and seamless user experiences that drive engagement.",
+    features: ["Flutter", "Jetpack Compose", "Custom UI Components", "Animations", "User Experience Optimization"],
+    price: "Starting at $500",
     gradient: "from-orange-500 to-red-500"
   },
   {
@@ -52,7 +52,7 @@ const services = [
     title: "Consultation & Maintenance",
     description: "Expert consultation on architecture decisions, code reviews, performance optimization, and ongoing maintenance. Reduce technical debt by 50%.",
     features: ["Architecture Consultation", "Code Reviews", "Performance Tuning", "Ongoing Support"],
-    price: "$150/hour",
+    price: "$20/hour",
     gradient: "from-teal-500 to-blue-500"
   }
 ];
@@ -217,8 +217,8 @@ export default function Services() {
                 <div className="bg-gradient-to-r from-primary-500 to-primary-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-glow">
                   <TrendingUp className="text-white" size={32} />
                 </div>
-                <p className="text-4xl font-bold gradient-text mb-2">40%</p>
-                <p className="text-neutral-700 font-medium">Faster Development with Flutter Hot-Reload</p>
+                <p className="text-4xl font-bold gradient-text mb-2">10+</p>
+                <p className="text-neutral-700 font-medium">Domains Mastered: Fintech, Sports, Bluetooth, AI/ML, & More</p>
               </motion.div>
               <motion.div
                 className="text-center group"
@@ -227,8 +227,8 @@ export default function Services() {
                 <div className="bg-gradient-to-r from-success-500 to-success-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-glow">
                   <Shield className="text-white" size={32} />
                 </div>
-                <p className="text-4xl font-bold text-success-600 mb-2">90%</p>
-                <p className="text-neutral-700 font-medium">Reduction in Upload Failure Rates</p>
+                <p className="text-4xl font-bold text-success-600 mb-2">50%</p>
+                <p className="text-neutral-700 font-medium">Improved performance and reduced technical debt with clean Architecture</p>
               </motion.div>
               <motion.div
                 className="text-center group"
@@ -237,8 +237,8 @@ export default function Services() {
                 <div className="bg-gradient-to-r from-accent-500 to-accent-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-glow-accent">
                   <Star className="text-white" size={32} />
                 </div>
-                <p className="text-4xl font-bold text-accent-600 mb-2">4+</p>
-                <p className="text-neutral-700 font-medium">Years of Proven Expertise</p>
+                <p className="text-4xl font-bold text-accent-600 mb-2">100%</p>
+                <p className="text-neutral-700 font-medium">Production-Ready Solutions Aligned with Best Practices</p>
               </motion.div>
             </div>
             <motion.div
@@ -246,9 +246,9 @@ export default function Services() {
               whileHover={{ scale: 1.02 }}
             >
               <p className="text-neutral-700 italic text-lg leading-relaxed">
-                "Reduce app development time by 40% using Flutter's hot-reload feature.
-                Optimize performance and achieve 90% reduction in upload failure rates with
-                enterprise-grade solutions backed by 4+ years of expertise."
+                "Multi-domain expertise spanning fintech, vehicle tracking, sports, hardware communication, AI/ML, and real-time systems. 
+                Architecting scalable solutions that reduce technical debt, optimize performance, and deliver 
+                dependable, high-quality work that stands the test of time."
               </p>
             </motion.div>
           </div>

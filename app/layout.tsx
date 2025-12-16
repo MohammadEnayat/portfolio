@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CursorFollower from "@/components/CursorFollower";
+import TouchIndicator from "@/components/TouchIndicator";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <CursorFollower />
+        <TouchIndicator />
         <Navbar />
         <main className="relative">{children}</main>
         <Footer />

@@ -5,33 +5,85 @@ import { motion } from "framer-motion";
 
 export default function CursorFollower() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [touchPosition, setTouchPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    // Detect if device supports touch
+    const checkIfMobile = () => {
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 768;
+      setIsMobile(hasTouch || isSmallScreen);
     };
 
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
 
-    // Add event listeners to interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, [role="button"], input, textarea');
-    interactiveElements.forEach(element => {
-      element.addEventListener('mouseenter', handleMouseEnter);
-      element.addEventListener('mouseleave', handleMouseLeave);
-    });
-
-    window.addEventListener('mousemove', updateMousePosition);
-
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      interactiveElements.forEach(element => {
-        element.removeEventListener('mouseenter', handleMouseEnter);
-        element.removeEventListener('mouseleave', handleMouseLeave);
-      });
-    };
+    return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      // Mobile/Touch device handling
+      const handleTouchStart = (e: TouchEvent) => {
+        const touch = e.touches[0];
+        setTouchPosition({ x: touch.clientX, y: touch.clientY });
+        setIsTouching(true);
+      };
+
+      const handleTouchMove = (e: TouchEvent) => {
+        const touch = e.touches[0];
+        setTouchPosition({ x: touch.clientX, y: touch.clientY });
+      };
+
+      const handleTouchEnd = () => {
+        setIsTouching(false);
+      };
+
+      // Add touch event listeners
+      document.addEventListener('touchstart', handleTouchStart, { passive: true });
+      document.addEventListener('touchmove', handleTouchMove, { passive: true });
+      document.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+      return () => {
+        document.removeEventListener('touchstart', handleTouchStart);
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+      };
+    } else {
+      // Desktop/Mouse device handling
+      const updateMousePosition = (e: MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      };
+
+      const handleMouseEnter = () => setIsHovering(true);
+      const handleMouseLeave = () => setIsHovering(false);
+
+      // Add event listeners to interactive elements
+      const interactiveElements = document.querySelectorAll('a, button, [role="button"], input, textarea, [data-hover]');
+      interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', handleMouseEnter);
+        element.addEventListener('mouseleave', handleMouseLeave);
+      });
+
+      window.addEventListener('mousemove', updateMousePosition);
+
+      return () => {
+        window.removeEventListener('mousemove', updateMousePosition);
+        interactiveElements.forEach(element => {
+          element.removeEventListener('mouseenter', handleMouseEnter);
+          element.removeEventListener('mouseleave', handleMouseLeave);
+        });
+      };
+    }
+  }, [isMobile]);
+
+  // Don't render anything on mobile devices
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>

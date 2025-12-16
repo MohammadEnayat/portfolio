@@ -46,15 +46,25 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth"
-      });
-    }
+    // Close the mobile menu first so the layout settles before we measure/scroll.
     setIsMobileMenuOpen(false);
+
+    const scroll = () => {
+      const element = document.querySelector(href);
+      if (!element) return;
+
+      const offsetTop =
+        element.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+
+      // Keep the URL hash in sync (without a jump).
+      if (history?.replaceState) {
+        history.replaceState(null, "", href);
+      }
+    };
+
+    // Wait for the menu collapse animation/layout update.
+    requestAnimationFrame(() => requestAnimationFrame(scroll));
   };
 
   return (

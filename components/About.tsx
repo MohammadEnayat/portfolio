@@ -126,14 +126,16 @@ export default function About() {
               </h3>
               <div className="space-y-4 text-neutral-700 leading-relaxed">
                 <p>
-                  Software Engineer with 4+ years building high-performance, scalable mobile applications
-                  across Android, iOS, and web platforms. Specialized in Flutter and native Android
-                  development with proven expertise in system architecture and performance optimization.
+                  Passionate software engineer with 4+ years building and maintaining applications for Android, 
+                  iOS, and web across diverse domains including fintech, Bluetooth/BLE, maps & GPS, video processing, 
+                  e-commerce, and AI-based features. Specialized in Flutter and native Android development using 
+                  Kotlin and Jetpack Compose with clean architecture patterns.
                 </p>
                 <p>
-                  Expert in AI/ML integration, real-time systems, hardware communication, and clean
-                  architecture. Recognized by Google for contributions to Flutter's ecosystem and
-                  Google Cloud innovations.
+                  Expert in designing systems that scale, reduce technical debt, and improve reliability. Proven track 
+                  record in hardware communication, biometric authentication, payment integrations, live streaming, 
+                  media optimization, and AI/ML model integration (TFLite, YOLO). Recognized by Google for contributions 
+                  to Flutter's ecosystem and commitment to delivering production-ready solutions aligned with industry best practices.
                 </p>
               </div>
             </div>
@@ -247,7 +249,7 @@ export default function About() {
                   Bachelor of Technology in Computer Science and Engineering
                 </p>
                 <p className="text-neutral-700 font-medium">
-                  Swami Parmanand College of Engineering and Technology
+                  Punjab Technical University
                 </p>
                 <div className="flex items-center gap-2 text-neutral-600">
                   <Calendar size={16} />
@@ -279,7 +281,6 @@ export default function About() {
                 company: "Kasava AI",
                 role: "Software Engineer",
                 period: "Feb 2025 - Nov 2025",
-                location: "Kolkata, West Bengal, India",
                 highlights: [
                   "Architected companion dashcam app from ground up using Flutter with clean architecture",
                   "Integrated Google Maps and HERE Maps SDK with GPS-based live location tracking",

@@ -197,5 +197,39 @@
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
   }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    /* Prevent zoom on input focus */
+    input, textarea, select {
+      font-size: 16px !important;
+    }
+
+    /* Improve touch targets */
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Better touch feedback */
+    * {
+      -webkit-tap-highlight-color: rgba(59, 130, 246, 0.1);
+    }
+  }
+
+  /* Touch device styles */
+  @media (hover: none) and (pointer: coarse) {
+    /* Hide hover effects on touch devices */
+    .hover-lift:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Adjust animations for touch devices */
+    .card-hover:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 }
 

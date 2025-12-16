@@ -97,7 +97,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-xl sm:text-2xl text-neutral-600 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            4+ years of expertise in Flutter, Android, iOS, and AI/ML integration.
+            4+ years of expertise in Flutter, Android, iOS, BLE/hardware communication, and AI/ML integration.
             Transforming ideas into high-performance mobile applications that scale.
           </motion.p>
 
