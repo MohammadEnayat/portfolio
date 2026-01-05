@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Code, Smartphone, Zap, Sparkles, Star } from "lucide-react";
+import { ArrowDown, Code, Smartphone, Zap, Sparkles, Star, FileText } from "lucide-react";
 
 export default function Hero() {
   const containerVariants = {
@@ -131,6 +131,17 @@ export default function Hero() {
             >
               <Zap className="inline mr-2" size={20} />
               Get In Touch
+            </motion.a>
+            <motion.a
+              href="https://drive.google.com/file/d/1o3wD3uXui_9qE0gAZqqvti7bJjHisDh3/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/80 backdrop-blur-sm border border-neutral-200 text-neutral-700 px-8 py-4 rounded-xl font-semibold hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 shadow-soft hover:shadow-medium"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FileText className="text-primary-600" size={20} />
+              View Resume
             </motion.a>
           </motion.div>
 

@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
@@ -72,11 +71,10 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
           ? "bg-white/95 backdrop-blur-xl shadow-large border-b border-neutral-200/50"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container-custom py-4">
         <div className="flex items-center justify-between">
@@ -105,11 +103,10 @@ export default function Navbar() {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 cursor-pointer ${
-                    isActive
+                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 cursor-pointer ${isActive
                       ? "text-primary-600 bg-primary-50"
                       : "text-neutral-700 hover:text-primary-600 hover:bg-primary-50/50"
-                  }`}
+                    }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -177,11 +174,10 @@ export default function Navbar() {
                       e.preventDefault();
                       scrollToSection(item.href);
                     }}
-                    className={`block px-4 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer ${
-                      isActive
+                    className={`block px-4 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer ${isActive
                         ? "text-primary-600 bg-primary-50 border border-primary-200"
                         : "text-neutral-700 hover:text-primary-600 hover:bg-primary-50/50"
-                    }`}
+                      }`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
