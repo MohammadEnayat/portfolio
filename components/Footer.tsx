@@ -23,7 +23,7 @@ export default function Footer() {
     },
     {
       icon: Github,
-      href: "https://github.com",
+      href: "https://github.com/MohammadEnayat",
       label: "GitHub",
       gradient: "from-neutral-600 to-neutral-700",
       hoverColor: "hover:shadow-neutral-500/25"
@@ -33,7 +33,6 @@ export default function Footer() {
   const quickLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" }
   ];

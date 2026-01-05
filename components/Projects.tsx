@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Smartphone, Globe, Zap, TrendingUp } from "lucide-react";
 
@@ -10,12 +10,12 @@ const projects = [
     category: "Dashcam Companion App",
     description: "Comprehensive companion app enabling users to manage, request, and view footage from vehicle dashcams. Features remote camera diagnostics via Bluetooth/BLE, video and route playback with GPS tracking, real-time location monitoring, and support chat functionality.",
     technologies: ["Flutter", "Dart", "Kotlin", "Swift", "Google Maps", "HERE SDK", "BLE", "Bluetooth", "GPS", "Azure", "BLoC", "Provider"],
-    impact: "Real-time dashcam management with AI-powered analytics for driver behavior detection",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
+    impact: "Serving 5k+ users with real-time dashcam management and AI-powered driver analytics",
+    image: "/images/kasava.webp",
     links: {
       ios: "https://apps.apple.com/app/id1562301152",
       android: "https://play.google.com/store/apps/details?id=io.kasava.kasava",
-      website: "https://kasava.io"
+      website: "https://www.kasava.io/"
     },
     highlights: ["AI/ML Integration", "Real-time GPS Tracking", "Bluetooth Communication"]
   },
@@ -24,8 +24,8 @@ const projects = [
     category: "Sports Management Platform",
     description: "Comprehensive basketball management application featuring match scheduling, tournament management, team joining functionality, real-time chat integration, live streaming capabilities, past game video playback, and in-app video editing tools.",
     technologies: ["Jetpack Compose", "Kotlin", "Agora SDK", "CometChat", "Firebase", "ExoPlayer"],
-    impact: "Increased user engagement by 35% with live streaming and real-time chat features",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800",
+    impact: "Serving 10k+ users with live streaming, real-time chat, and optimized smooth video playback",
+    image: "/images/allball.webp",
     links: {
       android: "https://play.google.com/store/apps/details?id=com.allballapp.android",
       ios: "https://apps.apple.com/app/id1666406171",
@@ -39,7 +39,7 @@ const projects = [
     description: "Built a scalable e-commerce mobile application using Flutter with Firebase backend for real-time commerce. Features include product catalog, shopping cart, secure payment processing, order tracking, and push notifications.",
     technologies: ["Flutter", "Firebase", "Stripe", "Provider", "Cloud Functions"],
     impact: "Reduced checkout time by 50% and increased conversion rates by 25%",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800",
+    image: "/images/inmotech.webp",
     links: {
       demo: "https://apkpure.net/inmotech/com.Inmotech.app"
     },
@@ -51,7 +51,7 @@ const projects = [
     description: "Financial management application for tracking expenses and budgets. Features include expense categorization, budget planning, financial reports, and data visualization. Built with Flutter and integrated with secure cloud storage.",
     technologies: ["Flutter", "Riverpod", "SQLite", "Charts", "Cloud Storage"],
     impact: "Increased user retention by 30% with intuitive expense tracking and budget insights",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800",
+    image: "/images/costazoom.webp",
     links: {
       demo: "https://apkpure.net/costazoom/com.estatta.costazoom"
     },
@@ -63,7 +63,7 @@ const projects = [
     description: "Productivity application for managing tasks, reminders, and commitments. Features include smart notifications, task prioritization, calendar integration, and progress tracking. Built with clean architecture and optimized for performance.",
     technologies: ["Flutter", "BLoC", "Local Notifications", "Calendar API", "Clean Architecture"],
     impact: "Improved task completion rates by 45% with smart reminders and prioritization",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800",
+    image: "/images/janjiku.webp",
     links: {
       demo: "https://www.janji-ku.com/"
     },
@@ -75,7 +75,7 @@ const projects = [
     description: "AI-powered application for summarizing text, documents, and articles. Utilizes on-device ML models for privacy-focused summarization. Features include multiple summary formats, export options, and offline capabilities.",
     technologies: ["Flutter", "TensorFlow Lite", "Natural Language Processing", "On-device ML"],
     impact: "Enabled 60% faster content consumption with AI-powered summarization",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
+    image: "/images/summarisemeai.webp",
     links: {
       demo: "https://summmarise-me-a-i-ewyc06.flutterflow.app"
     },
@@ -87,7 +87,7 @@ const projects = [
     description: "Comprehensive school management portal with AI-powered features. Includes dashboard, student/teacher/staff/parent management, classes, subjects, fees management, and announcement system. Rapid-prototyped using AI-powered development tools.",
     technologies: ["Flutter", "Web", "Figma", "Cursor", "AI Tools"],
     impact: "Streamlined school operations with 50% reduction in administrative workload",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800",
+    image: "/images/schoolyai.webp",
     links: {
       demo: "https://schooly-ai.vercel.app/"
     },
@@ -112,13 +112,15 @@ export default function Projects() {
     }
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.6
+        duration: 0.8,
+        ease: "circOut"
       }
     }
   };
@@ -173,63 +175,67 @@ export default function Projects() {
             <motion.div
               key={index}
               variants={cardVariants}
-              className="highlight-card group relative overflow-hidden"
+              className="group relative bg-white rounded-3xl overflow-hidden border border-neutral-200/50 shadow-xl hover:shadow-primary-500/10 transition-all duration-500"
               whileHover={{ y: -8 }}
             >
               {/* Project Header */}
-              <div className="relative h-64 bg-gradient-to-br from-primary-400 via-primary-500 to-primary-600 overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
-                  whileHover={{ opacity: 0.8 }}
+              <div className="relative h-48 overflow-hidden">
+                <motion.img
+                  src={project.image}
+                  alt={project.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                 />
+
+                {/* Modern Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+
+                {/* Shine Animation */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-accent-500/20 to-transparent"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent -translate-x-full"
+                  whileHover={{ x: '200%' }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
                 />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <motion.span
-                    className="inline-block bg-white/95 backdrop-blur-sm text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-3 shadow-lg"
-                    whileHover={{ scale: 1.05 }}
+
+                <div className="absolute inset-0 p-5 flex flex-col justify-end">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
                   >
-                    {project.category}
-                  </motion.span>
-                  <motion.h3
-                    className="text-2xl font-bold text-white mb-2"
-                    initial={{ opacity: 0.9 }}
-                    whileHover={{ opacity: 1 }}
-                  >
-                    {project.name}
-                  </motion.h3>
+                    <span className="inline-block px-3 py-1 rounded-full bg-primary-500/20 backdrop-blur-md border border-primary-400/30 text-primary-200 text-[10px] font-bold tracking-wider uppercase mb-2">
+                      {project.category}
+                    </span>
+                    <h3 className="text-2xl font-bold text-white mb-1 tracking-tight group-hover:text-primary-300 transition-colors">
+                      {project.name}
+                    </h3>
+                  </motion.div>
                 </div>
+
                 <motion.div
-                  className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
+                  className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
                 >
-                  <div className="bg-white/20 backdrop-blur-sm p-2 rounded-full">
-                    <ExternalLink className="text-white" size={20} />
+                  <div className="bg-white/10 backdrop-blur-xl p-2.5 rounded-xl border border-white/20 shadow-xl">
+                    <ExternalLink className="text-white" size={18} />
                   </div>
                 </motion.div>
               </div>
 
-              <div className="p-8">
-                <p className="text-neutral-700 mb-6 leading-relaxed">{project.description}</p>
+              <div className="p-5">
+                <p className="text-neutral-600 text-sm mb-4 leading-relaxed line-clamp-3">{project.description}</p>
 
                 {/* Key Highlights */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-neutral-900 mb-4 flex items-center gap-2">
-                    <Zap size={16} className="text-primary-600" />
+                <div className="mb-4">
+                  <h4 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                    <Zap size={12} className="text-primary-600" />
                     Key Highlights
                   </h4>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.highlights.map((highlight, i) => (
                       <motion.span
                         key={i}
-                        className="skill-tag"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="bg-gradient-to-r from-primary-50 to-primary-100 text-primary-700 border border-primary-200/60 px-2.5 py-1 rounded-lg text-[11px] font-semibold"
+                        whileHover={{ y: -1, scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                       >
                         {highlight}
                       </motion.span>
@@ -238,14 +244,14 @@ export default function Projects() {
                 </div>
 
                 {/* Technologies */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-neutral-900 mb-4">Technologies Used</h4>
-                  <div className="flex flex-wrap gap-2">
+                <div className="mb-4">
+                  <h4 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest mb-3">Core Stack</h4>
+                  <div className="flex flex-wrap gap-1">
                     {project.technologies.map((tech, i) => (
                       <motion.span
                         key={i}
-                        className="bg-neutral-100 text-neutral-700 px-3 py-2 rounded-full text-xs font-medium border border-neutral-200"
-                        whileHover={{ scale: 1.05, backgroundColor: "#e0f2fe" }}
+                        className="bg-neutral-100 text-neutral-600 px-2 py-1 rounded-md text-[10px] font-semibold border border-neutral-200/50 transition-colors hover:bg-primary-50 hover:text-primary-600 hover:border-primary-200"
+                        whileHover={{ y: -1 }}
                       >
                         {tech}
                       </motion.span>
@@ -255,41 +261,46 @@ export default function Projects() {
 
                 {/* Business Impact */}
                 <motion.div
-                  className="bg-gradient-to-r from-success-50 to-success-100 p-6 rounded-2xl mb-8 border border-success-200/50"
-                  whileHover={{ scale: 1.02 }}
+                  className="relative bg-gradient-to-br from-emerald-50 via-white to-emerald-50/50 rounded-2xl p-4 mb-4 overflow-hidden border border-emerald-200/60 shadow-sm"
+                  whileHover={{ scale: 1.01 }}
                 >
-                  <div className="flex items-center gap-2 mb-2">
-                    <TrendingUp className="text-success-600" size={18} />
-                    <p className="text-sm font-semibold text-success-800">Business Impact</p>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-400/5 rounded-full blur-2xl" />
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="p-1.5 bg-emerald-500/10 rounded-lg">
+                        <TrendingUp className="text-emerald-600" size={14} />
+                      </div>
+                      <p className="text-[10px] font-bold text-emerald-700 tracking-widest uppercase">Performance Impact</p>
+                    </div>
+                    <p className="text-neutral-700 font-medium text-xs leading-relaxed">{project.impact}</p>
                   </div>
-                  <p className="text-success-700 text-sm font-medium">{project.impact}</p>
                 </motion.div>
 
                 {/* Action Buttons */}
-                <div className="grid grid-cols-1 gap-3">
+                <div className="grid grid-cols-1 gap-2">
                   {project.links.ios && project.links.android && project.links.website ? (
                     <>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 gap-2">
                         <motion.a
                           href={project.links.ios}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-neutral-900 text-white px-6 py-4 rounded-xl hover:bg-neutral-800 transition-all duration-300 text-center font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                          className="group/btn bg-neutral-900 text-white px-4 py-3 rounded-xl transition-all duration-300 text-center text-xs font-bold flex items-center justify-center gap-2 shadow-lg hover:shadow-neutral-900/40"
                           whileHover={{ scale: 1.02, y: -2 }}
                           whileTap={{ scale: 0.98 }}
                         >
-                          <Smartphone size={18} />
+                          <Smartphone size={14} className="group-hover/btn:rotate-12 transition-transform" />
                           iOS
                         </motion.a>
                         <motion.a
                           href={project.links.android}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-success-600 text-white px-6 py-4 rounded-xl hover:bg-success-700 transition-all duration-300 text-center font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                          className="group/btn bg-success-600 text-white px-4 py-3 rounded-xl transition-all duration-300 text-center text-xs font-bold flex items-center justify-center gap-2 shadow-lg hover:shadow-success-600/40"
                           whileHover={{ scale: 1.02, y: -2 }}
                           whileTap={{ scale: 0.98 }}
                         >
-                          <Smartphone size={18} />
+                          <Smartphone size={14} className="group-hover/btn:-rotate-12 transition-transform" />
                           Android
                         </motion.a>
                       </div>
@@ -297,12 +308,12 @@ export default function Projects() {
                         href={project.links.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full bg-primary-600 text-white px-6 py-4 rounded-xl hover:bg-primary-700 transition-all duration-300 text-center font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                        className="group/btn w-full bg-white text-neutral-900 border-2 border-neutral-200 px-4 py-3 rounded-xl transition-all duration-300 text-center text-xs font-bold flex items-center justify-center gap-2 hover:border-neutral-900 shadow-sm"
                         whileHover={{ scale: 1.02, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <Globe size={18} />
-                        Website
+                        <Globe size={14} className="group-hover/btn:scale-110 transition-transform" />
+                        Explore Site
                       </motion.a>
                     </>
                   ) : project.links.ios && project.links.android ? (
@@ -311,22 +322,22 @@ export default function Projects() {
                         href={project.links.ios}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-neutral-900 text-white px-6 py-4 rounded-xl hover:bg-neutral-800 transition-all duration-300 text-center font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                        className="group/btn bg-neutral-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 text-center font-bold flex items-center justify-center gap-3 shadow-xl hover:shadow-neutral-900/40"
                         whileHover={{ scale: 1.02, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <Smartphone size={18} />
+                        <Smartphone size={18} className="group-hover/btn:rotate-12 transition-transform" />
                         iOS
                       </motion.a>
                       <motion.a
                         href={project.links.android}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-success-600 text-white px-6 py-4 rounded-xl hover:bg-success-700 transition-all duration-300 text-center font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                        className="group/btn bg-success-600 text-white px-6 py-4 rounded-2xl transition-all duration-300 text-center font-bold flex items-center justify-center gap-3 shadow-xl hover:shadow-success-600/40"
                         whileHover={{ scale: 1.02, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <Smartphone size={18} />
+                        <Smartphone size={18} className="group-hover/btn:-rotate-12 transition-transform" />
                         Android
                       </motion.a>
                     </div>
@@ -335,11 +346,11 @@ export default function Projects() {
                       href={project.links.ios}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full bg-neutral-900 text-white px-6 py-4 rounded-xl hover:bg-neutral-800 transition-all duration-300 text-center font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                      className="group/btn w-full bg-neutral-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 text-center font-bold flex items-center justify-center gap-3 shadow-xl hover:shadow-neutral-900/40"
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Smartphone size={18} />
+                      <Smartphone size={18} className="group-hover/btn:rotate-12 transition-transform" />
                       Download iOS App
                     </motion.a>
                   ) : project.links.android ? (
@@ -347,11 +358,11 @@ export default function Projects() {
                       href={project.links.android}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full bg-success-600 text-white px-6 py-4 rounded-xl hover:bg-success-700 transition-all duration-300 text-center font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                      className="group/btn w-full bg-success-600 text-white px-6 py-4 rounded-2xl transition-all duration-300 text-center font-bold flex items-center justify-center gap-3 shadow-xl hover:shadow-success-600/40"
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Smartphone size={18} />
+                      <Smartphone size={18} className="group-hover/btn:-rotate-12 transition-transform" />
                       Download Android App
                     </motion.a>
                   ) : (
@@ -359,12 +370,12 @@ export default function Projects() {
                       href={project.links.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full btn-primary text-center"
+                      className="group/btn w-full bg-white text-neutral-900 border-2 border-neutral-900 px-6 py-4 rounded-2xl transition-all duration-300 text-center font-bold flex items-center justify-center gap-3 hover:bg-neutral-900 hover:text-white shadow-lg"
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <ExternalLink size={18} className="inline mr-2" />
-                      View Demo
+                      <ExternalLink size={18} className="group-hover/btn:scale-110 transition-transform" />
+                      View Project Demo
                     </motion.a>
                   )}
                 </div>

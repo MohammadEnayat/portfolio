@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Award, Briefcase, GraduationCap, Linkedin, Mail, Phone, MapPin, Calendar, CheckCircle, Star, Trophy, Target } from "lucide-react";
+import { Award, Briefcase, GraduationCap, Linkedin, Mail, Phone, MapPin, Calendar, CheckCircle, Star, Trophy, Target, Github } from "lucide-react";
 
 const skills = [
   "Flutter", "Dart", "Kotlin", "Java", "Jetpack Compose",
   "BLoC", "Provider", "Riverpod", "MVVM", "Clean Architecture",
   "TensorFlow Lite", "YOLO", "Firebase", "Azure", "GCP", "AWS",
-  "Google Maps", "Stripe", "Agora", "CometChat"
+  "Google Maps", "Stripe", "Agora", "CometChat", "WorkManager", "Hilt", "Coroutines"
 ];
 
 const achievements = [
@@ -25,8 +25,8 @@ const achievements = [
     gradient: "from-blue-400 to-blue-600"
   },
   {
-    title: "Google Flutter App UI Study",
-    description: "Selected participant in invite-only research",
+    title: "Google Flutter UI Research Study",
+    description: "Selected participant in invite-only live interview research",
     icon: Target,
     gradient: "from-green-400 to-green-600"
   },
@@ -126,16 +126,15 @@ export default function About() {
               </h3>
               <div className="space-y-4 text-neutral-700 leading-relaxed">
                 <p>
-                  Passionate software engineer with 4+ years building and maintaining applications for Android, 
-                  iOS, and web across diverse domains including fintech, Bluetooth/BLE, maps & GPS, video processing, 
-                  e-commerce, and AI-based features. Specialized in Flutter and native Android development using 
-                  Kotlin and Jetpack Compose with clean architecture patterns.
+                  Software Engineer with 4+ years of experience delivering production-grade mobile applications across
+                  Android, iOS, and web platforms. Specialized in Flutter and native Android (Kotlin, Jetpack Compose),
+                  with a strong focus on clean architecture, performance optimization, and native platform integrations.
                 </p>
                 <p>
-                  Expert in designing systems that scale, reduce technical debt, and improve reliability. Proven track 
-                  record in hardware communication, biometric authentication, payment integrations, live streaming, 
-                  media optimization, and AI/ML model integration (TFLite, YOLO). Recognized by Google for contributions 
-                  to Flutter's ecosystem and commitment to delivering production-ready solutions aligned with industry best practices.
+                  Expertise includes AI-powered features (YOLO, TensorFlow Lite), Bluetooth/BLE communication,
+                  real-time location systems, and secure subscription-based payment solutions. Proven track
+                  record in scaling applications to 10k+ users and handling large-scale media processing with 90%
+                  reliability improvements.
                 </p>
               </div>
             </div>
@@ -233,6 +232,21 @@ export default function About() {
                     <p className="text-neutral-900 font-semibold">linkedin.com/in/mohammad-enayat</p>
                   </div>
                 </motion.a>
+                <motion.a
+                  href="https://github.com/MohammadEnayat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 glass-effect rounded-xl hover:bg-white/50 transition-all duration-300 group"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="bg-gradient-to-r from-neutral-800 to-neutral-900 p-3 rounded-lg group-hover:scale-110 transition-transform">
+                    <Github size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="text-neutral-600 text-sm font-medium">GitHub</p>
+                    <p className="text-neutral-900 font-semibold">github.com/MohammadEnayat</p>
+                  </div>
+                </motion.a>
               </div>
             </div>
 
@@ -281,12 +295,13 @@ export default function About() {
                 company: "Kasava AI",
                 role: "Software Engineer",
                 period: "Feb 2025 - Nov 2025",
+                location: "Kolkata, India",
                 highlights: [
-                  "Architected companion dashcam app from ground up using Flutter with clean architecture",
-                  "Integrated Google Maps and HERE Maps SDK with GPS-based live location tracking",
-                  "Implemented enterprise-grade biometric security with FaceID and Fingerprint authentication",
-                  "Developed custom Bluetooth/BLE communication modules for offline mobile-dashcam integration",
-                  "Integrated AI/ML models (YOLO, TensorFlow Lite) for real-time on-device inference"
+                  "Engineered companion dashcam app for 5k+ users from scratch using modular clean architecture",
+                  "Integrated Google Maps and HERE Maps with live GPS tracking, handling 1,000+ location updates per session",
+                  "Built robust Bluetooth/BLE communication layers and contributed firmware-side code (Kotlin/Java)",
+                  "Integrated on-device AI models (YOLO, TFLite) for real-time driver behavior and distraction analysis",
+                  "Implemented Stripe-based recurring subscriptions supporting transactions exceeding $200K USD"
                 ],
                 gradient: "from-blue-500 to-cyan-500"
               },
@@ -294,11 +309,12 @@ export default function About() {
                 company: "SoftProdigy System Solutions",
                 role: "Associate Software Engineer",
                 period: "June 2022 - Feb 2025",
+                location: "Chandigarh, India",
                 highlights: [
-                  "Developed production mobile applications using Flutter and Jetpack Compose",
-                  "Optimized background media upload service achieving 90% reduction in upload failure rates",
-                  "Implemented comprehensive state management using Provider, Riverpod, GetX, and BLoC",
-                  "Built secure fintech applications with SSL pinning and end-to-end encryption"
+                  "Developed production mobile apps using Flutter and Jetpack Compose across multiple client projects",
+                  "Designed chunked background upload pipelines for 2GB+ files, reducing failure rates by 90%",
+                  "Enabled smooth HD video playback for 10k+ users with smart caching, driving 25% feature usage growth",
+                  "Implemented MVVM/MVC architectures using Provider, Riverpod, and BLoC to improve maintainability"
                 ],
                 gradient: "from-green-500 to-emerald-500"
               }
@@ -324,7 +340,7 @@ export default function About() {
                         </div>
                         <div className="flex items-center gap-1">
                           <MapPin size={14} />
-                          <span className="text-sm font-medium">Chandigarh, India</span>
+                          <span className="text-sm font-medium">{exp.location}</span>
                         </div>
                       </div>
                     </div>
