@@ -91,5 +91,5 @@ This site can be deployed on:
 
 ## License
 
-All rights reserved © 2025 Mohammad Enayat
+All rights reserved © 2026 Mohammad Enayat
 
